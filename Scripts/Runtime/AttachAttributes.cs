@@ -23,8 +23,19 @@ namespace Nrjwolf.Tools.AttachAttributes
         }
     }
 
+    [AttributeUsage(System.AttributeTargets.Field)]
+    public class FindObjectOfTypeAttribute : AttachPropertyAttribute
+    {
+        public bool IncludeInactive { get; private set; }
+
+        public FindObjectOfTypeAttribute(bool includeInactive = false)
+        {
+            IncludeInactive = includeInactive;
+        }
+    }
+
     [AttributeUsage(System.AttributeTargets.Field)] public class AddComponentAttribute : AttachPropertyAttribute { }
-    [AttributeUsage(System.AttributeTargets.Field)] public class FindObjectOfTypeAttribute : AttachPropertyAttribute { }
+
     [AttributeUsage(System.AttributeTargets.Field)] public class GetComponentInParent : AttachPropertyAttribute { }
 
     [Conditional("UNITY_EDITOR")]

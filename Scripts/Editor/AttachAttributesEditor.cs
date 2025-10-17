@@ -95,7 +95,7 @@ namespace Nrjwolf.Tools.Editor.AttachAttributes
         public virtual void UpdateProperty(SerializedProperty property, GameObject go, Type type)
         {
             // Do whatever
-            // For example to get component 
+            // For example to get component
             // property.objectReferenceValue = go.GetComponent(type);
         }
     }
@@ -155,6 +155,10 @@ namespace Nrjwolf.Tools.Editor.AttachAttributes
 
         public UnityEngine.Object FindObjectsOfTypeByName(string aClassName)
         {
+            var findOption = ((FindObjectOfTypeAttribute)attribute).IncludeInactive
+                ? FindObjectsInactive.Include
+                : FindObjectsInactive.Exclude;
+
             var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
             for (int i = 0; i < assemblies.Length; i++)
             {
@@ -162,7 +166,7 @@ namespace Nrjwolf.Tools.Editor.AttachAttributes
                 for (int n = 0; n < types.Length; n++)
                 {
                     if (typeof(UnityEngine.Object).IsAssignableFrom(types[n]) && aClassName == types[n].Name)
-                        return UnityEngine.Object.FindObjectOfType(types[n]);
+                        return UnityEngine.Object.FindFirstObjectByType(types[n], findOption);
                 }
             }
             return new UnityEngine.Object();
