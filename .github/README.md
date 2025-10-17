@@ -1,5 +1,12 @@
 # Unity auto attach component via attributes
 
+## Changes made in this fork
+
+- `[GetComponentInParent]` now searches through parents at all levels (like [GetComponentInParent()](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) does), not only the immediate one.
+- All attributes made Conditional, so they're excluded from non-`UNITY_EDITOR` compilations
+
+## Original description
+
 <b>Forum Thread</b> https://forum.unity.com/threads/auto-attach-components-via-attributes.928098/
 
 ### Installation
