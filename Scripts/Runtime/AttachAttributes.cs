@@ -26,5 +26,6 @@ namespace Nrjwolf.Tools.AttachAttributes
     [AttributeUsage(System.AttributeTargets.Field)] public class FindObjectOfTypeAttribute : AttachPropertyAttribute { }
     [AttributeUsage(System.AttributeTargets.Field)] public class GetComponentInParent : AttachPropertyAttribute { }
 
+    [Conditional("UNITY_EDITOR")]
     public class AttachPropertyAttribute : PropertyAttribute { }
 }
