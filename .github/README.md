@@ -5,7 +5,7 @@
 - `[GetComponentInParent]` now searches through parents at all levels (like [GetComponentInParent()](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) does), not only the immediate one.
 - All attributes made Conditional, so they're excluded from non-`UNITY_EDITOR` compilations.
   >
-  >_NOTE_: This does not break component references in Player builds, only removes unneccessary metadata from the release assemblies which is only useful inside Unity Editor.
+  >_NOTE_: This does not break component references in Player builds, only removes unnecessary metadata from the release assemblies which is only useful inside Unity Editor.
 
 ## Original description
 
