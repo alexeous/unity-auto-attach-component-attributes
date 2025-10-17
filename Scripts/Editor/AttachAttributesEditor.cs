@@ -176,7 +176,7 @@ namespace Nrjwolf.Tools.Editor.AttachAttributes
         public override void UpdateProperty(SerializedProperty property, GameObject go, Type type)
         {
             if (go.transform.parent != null)
-                property.objectReferenceValue = go.transform.parent.gameObject.GetComponent(type);
+                property.objectReferenceValue = go.transform.GetComponentInParent(type);
         }
     }
     #endregion
